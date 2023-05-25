@@ -1,4 +1,4 @@
-﻿# Connect to Microsoft Teams
+# Connect to Microsoft Teams
 Connect-MicrosoftTeams
 
 # Get the current date and format it
@@ -14,7 +14,7 @@ catch {
 }
 
 # Get the results of the search
-$results1 = Get-CsOnlineUser | Where-Object LineURI -match 'x' | Select-Object UserPrincipalName, LineUri
+$results1 = Get-CsOnlineUser | Where-Object { $_.LineURI -match 'x' -and ($_.TeamsUpgradeEffectiveMode -eq 'TeamsOnly' -or $_.TeamsUpgradeEffectiveMode -eq 'Islands') } | Select-Object UserPrincipalName, LineUri
 
 # If there are results, print them; otherwise, display a message
 if ($results1) {
