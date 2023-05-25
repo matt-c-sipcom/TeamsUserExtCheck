@@ -1,4 +1,7 @@
 # TeamsUserExtCheck
 
 
-This script exports ONLY the LineURI and TeamsUpgradeEffectiveMode information for all users with Teams Phone System. The script connects to your AzureAD tenant using the Teams PowerShell Module and requires "Teams Administrator" permissions to run.  Once the data has been exported to a local CSV file, it is then secure stored in an Azure blob provided by your Direct Routing provider. This will then be used to provide continual extention support required due to MS487014  The local CSV file is deleted as part of the script.
+This script will provide visibility to a Administrator of which users within their Microsoft Teams tenant have an extension assigned as part of their number.
+It retrieves the UPN and LineUri parameters for matching users. The information is presented in a table format to the user running the script locally in their console only.
+
+The script connects to your AzureAD tenant using the Teams PowerShell Module and requires "Teams Administrator" permissions to run.
